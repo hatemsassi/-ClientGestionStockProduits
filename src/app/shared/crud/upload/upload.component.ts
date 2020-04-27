@@ -10,7 +10,7 @@ import { CrudService } from '../../crud.service';
 })
 export class UploadComponent implements OnInit {
 
-  @ViewChild("fileUploadInput", {static: true})
+  @ViewChild("fileUploadInput")
   fileUploadInput: any;
 
   @Input()

@@ -10,27 +10,42 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 
 export const appRoutes: Routes = [
-  {  path: '',  redirectTo: '/home',  pathMatch: 'full' },
+  {  path: 'home',  redirectTo: '/home/dashboard',  pathMatch: 'full' },
   {  path: 'login',  component: LoginComponent},
   {  path: 'home',   component: HomeComponent,
      children: [
       {  
-        path: '', component: ProductComponent,
-        outlet: 'homeOutlet',
+        path: 'product', 
+        component: ProductComponent,
         resolve: {
           products: ProductResolver
-       }
-   },
+        }
+      },
+      { path: 'dashboard',  
+        component: DashboardComponent,
+      },
+      { path: 'user', 
+        component: UserComponent,
+        resolve: {
+          users: UserResolver
+        }
+      }
      ]
-  },
-  
-  
-  { path: 'dashboard',  component: DashboardComponent },
-  { path: 'user', component: UserComponent,
-    resolve: {
-      users: UserResolver
     }
-  }
+    /*,
+    { path: 'home/product', component: ProductComponent,
+      resolve: {
+      users: ProductResolver
+      }
+    },
+    { path: 'home/dashboard',  component: DashboardComponent 
+    },
+    { path: 'home/user', component: UserComponent,
+      resolve: {
+        users: UserResolver
+      }
+    }*/
+
 ];
 
 @NgModule({

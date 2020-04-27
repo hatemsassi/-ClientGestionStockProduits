@@ -9,7 +9,7 @@ import { ChartComponent } from 'angular2-chartjs';
 })
 export class MyChartComponent implements AfterViewChecked {
 
-  @ViewChild('ghraphElement', {static: true})
+  @ViewChild('ghraphElement')
   private ghraphElement: ChartComponent;
 
   @Input()
